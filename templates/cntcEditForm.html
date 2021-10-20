@@ -1,0 +1,34 @@
+{% extends 'layouts/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+
+
+{% block content %}
+    <br>
+    <section>
+        <div class="container">
+            <div id="plaza_form">
+                <div class="col-lg-5 offset-lg-3">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                {{ field.label }}: {{ field|add_class:'form-control' }}
+                            </div>
+                        {% endfor %}
+
+                        <button class="btn btn-outline-dark float-right" type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
+
+{% endblock %}
+
+
+

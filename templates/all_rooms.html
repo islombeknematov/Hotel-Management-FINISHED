@@ -1,0 +1,47 @@
+{% load static %}
+{% load my_tags %}
+{% load  i18n %}
+
+
+<div class="col-lg-3 shadow-lg p-3 m-4 bg-white rounded">
+    <a href="{{ room.image.url }}"><img class="thumbnail" src="{{ room.image.url }}" alt="image"
+                                        style="height: 330px"></a>
+    <div class="box-element product">
+        <div class="row ml-lg-1 mt-2">
+            <h4><strong>&nbsp{{ room.title }}</strong></h4>
+            <div class="rating mt-1 ml-lg-5">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+            </div>
+        </div>
+        <hr>
+        <a class="btn btn-outline-success pb-1 pt-1 mb-1" href="/room/{{ room.pk }}">View</a>
+
+        <a href="{% url 'room:edit-wishlist' pk=room.pk %}?next={{ request.path }}"
+           style="text-decoration: none">
+            {% if request.user.is_authenticated and room|liked_room:request.user %}
+                <img src="{% static 'img/heart/red_heart.png' %}" class=" ml-2 mb-1"
+                     style="width: 7%; height: 7%" alt="like">
+            {% else %}
+                <img src="{% static 'img/heart/white_heart.png' %}" class=" ml-2 mb-1"
+                     style="width: 7%; height: 7%" alt="like">
+            {% endif %}
+        </a>
+
+        <a href="{% url 'room:update-book' pk=room.pk %}?next={{ request.path }}" style="color: black">
+            {% if room|book_room:request.user %}
+                <i class="far fa-calendar-times text-danger" style="font-size: 125%; margin-left: 5px"></i>
+            {% else %}
+                <i class="far fa-calendar-plus" style=" font-size: 125%; margin-left: 5px"></i>
+            {% endif %}
+        </a>
+
+
+        <h4 style="display: inline-block; float: right">${{ room.price|floatformat }}</h4>
+
+    </div>
+
+</div>

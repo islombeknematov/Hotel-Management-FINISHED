@@ -1,0 +1,58 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block extra_css %}
+    <style>
+        .container a:hover {
+            color: #FFFFFF;
+        }
+         .boxes-element {
+            box-shadow: hsl(0, 0%,80%) 0 0 16px;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 30px;
+        }
+        .boxes-element h4{
+            margin-left: 80px;
+            font-weight: bolder;
+            color: gray;
+        }
+        .boxes-element a{
+            margin-left: 300px;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+
+
+
+    <div class="container col-lg-10 mr-5">
+        <div class="row">
+            {% if object_list %}
+                <br><br><br>
+                <div class="container">
+                    <a href="{% url 'room:my_room' %}" class="btn btn-outline-secondary"><b>&#8592; {% trans 'Back To All' %} &nbsp </b></a>
+                </div>
+
+                {% for room in object_list %}
+                    {% include 'all_rooms.html' %}
+                {% endfor %}
+
+            {% else %}
+                <div class="col-lg-7 centered mt-lg-5">
+                    <div class="boxes-element">
+                        <h4>You Have Not Added Any Room To Wishlist <img src="{% static 'img/heart/white_heart.png' %}" width="23px" alt=""> </h4>
+                        <a href="{% url 'room:my_room' %}" class="btn btn-outline-secondary"><b>&#8592; Back To Add &nbsp </b></a>
+                    </div>
+                </div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}

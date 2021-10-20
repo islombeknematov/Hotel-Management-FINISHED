@@ -1,0 +1,126 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block extra_css %}
+
+    <style>
+
+        .product__pagination {
+            padding-top: 25px;
+            text-align: center;
+        }
+
+        .product__pagination a {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 700;
+            color: #111111;
+            height: 30px;
+            width: 30px;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .product__pagination a.active {
+            border-color: #111111;
+        }
+
+        .product__pagination a:hover {
+            border-color: #111111;
+            text-decoration: none;
+        }
+
+        .shop__product__option p {
+            color: #777777;
+        }
+
+        .container a:hover {
+            color: #FFFFFF;
+        }
+
+
+        .boxes-element {
+            box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 30px;
+            margin-bottom: 200px;
+            margin-right: 50px;
+            color: gray;
+        }
+
+
+
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <div class="col-lg-12 p-2" style="background-color: #f6f4f4">
+        <div class="breadcrumb__text" style="margin-left: 10rem">
+            <h4 class="font-weight-bolder">{% trans 'Rooms' %}</h4>
+            <div class="breadcrumb__links">
+                <a href="{% url 'homePage:banner' %}">{% trans 'Home' %}</a>
+                <span class="text-secondary">{% trans 'Rooms' %}</span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container col-lg-10 mr-5">
+        <div class="shop__product__option mt-lg-5 form-inline">
+            {% if object_list %}
+                <p class="ml-4">{% trans 'Showing' %} {{ page_obj.start_index }}-{{ page_obj.end_index }} {% trans 'out of' %} {{ page_obj.paginator.count }}
+                    <span><a href="{% url 'api:room_api' %}" class="text-black-50 text-decoration-none ml-lg-3">API</a></span>
+                </p>
+
+{#                <label class="ml-lg-3">#}
+{#                    <select class="form-control-plaintext text-secondary bg-white mb-3">#}
+{#                        <option value="proce">Low To High</option>#}
+{#                        <option value="-price">High To Low</option>#}
+{#                    </select>#}
+{#                </label>#}
+
+                <form class="form-inline mb-3" style="margin-left: 750px">
+                    <input class="col-lg-8 form-control" value="{{ request.GET.q }}" name="q" type="search"
+                           placeholder="{% trans 'Type...' %}">
+                    <button type="submit" class="btn btn-outline-success ml-2">{% trans 'Search' %}</button>
+                </form>
+            {% else %}
+                <div class="col-lg-7 centered">
+                    <div class="boxes-element">
+                        <h4 class="font-weight-bolder ml-lg-5">{% trans 'Room with this kind of name does not exist' %}</h4>
+                        <a href="{% url 'room:my_room' %}" class="btn btn-outline-secondary"><b>&#8592; {% trans 'Back To All' %}
+                            &nbsp </b></a>
+                    </div>
+                </div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            {% endif %}
+
+
+        </div>
+        <div class="row">
+            {% for room in object_list %}
+                {% include 'all_rooms.html' %}
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if object_list %}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="product__pagination">
+                    {% for page in page_obj.paginator.page_range %}
+                        <a {% if page == page_obj.number %} class="active"{% endif %}
+                                                            href="?page={{ page }}">{{ page }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <br><br>
+    {% endif %}
+{% endblock %}

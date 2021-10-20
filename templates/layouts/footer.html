@@ -1,0 +1,82 @@
+{% load static %}
+{% block extra_css %}
+    <style>
+
+        .footer {
+            background-color: #7f8080;
+        }
+
+        ul li a {
+            color: #333333;
+            font-size: 17px;
+        }
+
+        ul li a:hover {
+            color: lightgray;
+            text-decoration: none;
+        }
+    </style>
+{% endblock %}
+
+
+<footer class="footer">
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="footer__about">
+                    <div class="footer__logo">
+                        <a href="#"><img src="{% static 'img/plaza.jpeg' %}" style="width: 180px; height: 130px" alt=""></a>
+                    </div>
+                    <p>Lorem ipsum dolor.Lorem ipsum dolor sit amet</p>
+                    <a href="#"><img src="{% static "img/payment.png" %}" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                <div class="footer__widget">
+                    <h6>News</h6>
+                    <ul>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Lorem ipsum</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="footer__widget">
+                    <h6>Others</h6>
+                    <ul>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Lorem ipsum</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                <div class="footer__widget">
+                    <h6>NewsLetter</h6>
+                    <div class="footer__newslatter">
+                        <p>Lorem ipsum dolor sit amet. Ab architecto deleniti dolores eos repellendus sequi suscipit!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!--Section: Content-->
+        <section class="px-md-5 mx-md-5 text-center white-text elegant-color z-depth-1 rounded">
+            <h6 class="text-light">Made with <i class="fas fa-heart red-text mx-1"></i> by Islombek Nematov</h6>
+        </section>
+        <!--Section: Content-->
+
+</footer>
+
+
+
+
+
+
+
+

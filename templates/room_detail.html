@@ -1,0 +1,114 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load my_tags %}
+{% load i18n %}
+
+{% block extra_css %}
+    <style>
+
+        .box-element {
+            box-shadow: hsl(0, 2%, 81%) 5px 5px 40px 5px;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        .row-image {
+            width: 250px;
+            height: 175px;
+            margin-left: 50px;
+        }
+
+        .image_name {
+            display: flex;
+            align-items: flex-start;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            margin-left: 120px;
+        }
+
+        .cart-row {
+            display: flex;
+            align-items: flex-start;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <div class="col-lg-12 p-2" style="background-color: #f6f4f4">
+        <div class="breadcrumb__text" style="margin-left: 10rem">
+            <h4 class="font-weight-bolder">{% trans 'Detail' %}</h4>
+            <div class="breadcrumb__links">
+                <a href="{% url 'room:my_room' %}">{% trans 'Rooms' %}</a>
+                <span class="text-secondary">{% trans 'Detail' %}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-8 centered">
+
+
+            <br>
+
+            {#            {% if detail %}#}
+            <div class="box-element">
+                <a class="btn btn-outline-secondary mb-2" href="{% url 'room:my_room' %}">&#x2190;
+                    <b>{% trans 'Back To Continue' %}</b></a>
+
+                <div class="cart-row">
+                    <div style="flex: 2"></div>
+                    <div style="flex: 1"><strong>{% trans 'title'|capfirst %}</strong></div>
+                    <div style="flex: 1"><strong>{% trans 'Stars' %}</strong></div>
+                    <div style="flex: 1"><strong>{% trans 'price'|capfirst %}</strong></div>
+                </div>
+                <hr>
+
+                <div class="cart-row">
+                    <div style="flex: 2"><a href="{{ detail.image.url }}"><img class="row-image"
+                                                                               src="{{ detail.image.url }}"></a></div>
+                    <div style="flex: 1">{{ detail.title }}</div>
+                    <div style="flex: 1">
+                        <p>5 <i style="color: darkorange" class="fas fa-star"></i></p>
+                    </div>
+                    <div style="flex: 1">$ {{ detail.price }}</div>
+
+                </div>
+
+                <br>
+                <div class="image_name">
+                    <div style="flex: 1"><strong>{% trans 'living room'|capfirst %}</strong></div>
+                    <div style="flex: 1;margin-left: 120px"><strong>{% trans 'kitchen'|capfirst %}</strong></div>
+                    <div style="flex: 1; margin-left: 110px"><strong>{% trans 'bathroom'|capfirst %}</strong></div>
+                </div>
+                <hr>
+                <div class="cart-row">
+                    <div style="flex: 1"><a href="{{ detail.living.url }}"><img class="row-image"
+                                                                                src="{{ detail.living.url }}"></a></div>
+                    <div style="flex: 1"><a href="{{ detail.kitchen.url }}"><img class="row-image"
+                                                                                 src="{{ detail.kitchen.url }}"></a>
+                    </div>
+                    <div style="flex: 1"><a href="{{ detail.bathroom.url }}"><img class="row-image"
+                                                                                  src="{{ detail.bathroom.url }}"></a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <br><br><br>
+
+        </div>
+    </div>
+
+    <br><br><br><br>
+
+{% endblock %}

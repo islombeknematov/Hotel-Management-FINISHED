@@ -1,0 +1,51 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Register for an account" %}{% endblock %}
+
+{% block content %}
+    <div class="form-block mx-auto">
+        <div class="text-center mb-5">
+            <h3 class="text-uppercase">Register</h3>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group first">
+                <label for="username">Username</label>
+                <input name="username" type="text" class="form-control" placeholder="Username"
+                       id="username">
+            </div>
+
+            <div class="form-group first">
+                <label for="username">Email</label>
+                <input name="email" type="email" class="form-control" placeholder="your@gmail.com"
+                       id="username">
+            </div>
+
+            <div class="form-group last mb-3">
+                <label for="password">Password</label>
+                <input name="password1" type="password" class="form-control" placeholder="Password"
+                       id="password">
+            </div>
+            <div class="form-group last mb-3">
+                <label for="password">Confirm password</label>
+                <input name="password2" type="password" class="form-control" placeholder="Password"
+                       id="password">
+            </div>
+
+            <input type="submit" value="Register" class="btn btn-block py-2 btn-success">
+        </form>
+    </div>
+{% endblock %}
+
+{% comment %}
+**registration/registration_form.html**
+Used to show the form users will fill out to register. By default, has
+the following context:
+
+``form``
+    The registration form. This will be an instance of some subclass
+    of ``django.forms.Form``; consult `Django's forms documentation
+    <http://docs.djangoproject.com/en/dev/topics/forms/>`_ for
+    information on how to display this in a template.
+{% endcomment %}

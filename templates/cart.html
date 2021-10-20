@@ -1,0 +1,100 @@
+{#{% extends 'layouts/base.html' %}#}
+{#{% load static %}#}
+{#{% block extra_css %}#}
+{#    <style>#}
+{##}
+{#        .box-element {#}
+{#            box-shadow: hsl(0, 0%, 80%) 0 0 16px;#}
+{#            background-color: #fff;#}
+{#            border-radius: 4px;#}
+{#            padding: 10px;#}
+{#        }#}
+{##}
+{#        .row-image {#}
+{#            width: 150px;#}
+{#            margin-left: 50px;#}
+{#        }#}
+{##}
+{#        .cart-row {#}
+{#            display: flex;#}
+{#            align-items: flex-start;#}
+{#            padding-bottom: 10px;#}
+{#            margin-bottom: 10px;#}
+{#            border-bottom: 1px solid #ececec;#}
+{#        }#}
+{##}
+{##}
+{##}
+        {#.chg-quantity {#}
+        {#    width: 12px;#}
+        {#    cursor: pointer;#}
+        {#    display: block;#}
+        {#    margin-top: 5px;#}
+        {#    transition: .1s;#}
+        {#s}#}
+{##}
+        {#.chg-quantity:hover {#}
+        {#    opacity: .6;#}
+        {#s}#}
+{##}
+{#    </style>#}
+{#{% endblock %}#}
+{##}
+{##}
+{#{% block content %}#}
+{#    <br><br><br>#}
+{#    <div class="row">#}
+{#        <div class="col-lg-8 centered">#}
+{#            <div class="box-element">#}
+{#                <a class="btn btn-outline-secondary mb-2" href="{% url 'room:my_room' %}">&#x2190; <b>Back To Continue</b></a>#}
+{#                <table class="table">#}
+{#                    <tr>#}
+{#                        <th>#}
+{#                            <h5 class="form-inline text-secondary ml-4 mt-1 font-weight-bolder">From:&nbsp<input class="form-control text-secondary" style="width: 300px" type="datetime-local"></h5>#}
+{#                        </th>#}
+{#                        <th>#}
+{#                            <h5 class="form-inline text-secondary mt-1 font-weight-bolder">To:&nbsp<input class="form-control text-secondary" style="width: 300px" type="datetime-local"></h5>#}
+{#                        </th>#}
+{#                        <th>#}
+{#                            <a style="margin: 5px" class="btn btn-success" href="#"><b>Checkout</b></a>#}
+{#                        </th>#}
+{#                    </tr>#}
+{#                </table>#}
+{#            </div>#}
+{##}
+{#            <br>#}
+{##}
+{#            <div class="box-element">#}
+{#                <div class="cart-row">#}
+{#                    <div style="flex: 2"></div>#}
+{#                    <div style="flex: 1"><strong>Title</strong></div>#}
+{#                    <div style="flex: 1"><strong>Price</strong></div>#}
+{#                    <div style="flex: 1"><strong>Stars</strong></div>#}
+{#                    <div style="flex: 1"><strong>Total</strong></div>#}
+{#                </div>#}
+{##}
+                {#                {% for item in items %}#}
+{##}
+{#                <div class="cart-row">#}
+{#                    <div style="flex: 2"><img class="row-image" src="{% static 'img/home.jpg' %}"></div>#}
+{#                    <div style="flex: 1">name</div>#}
+{#                    <div style="flex: 1">$150</div>#}
+{#                    <div style="flex: 1">#}
+{#                        <p>5 <i style="color: darkorange" class="fas fa-star"></i> </p>#}
+{#                        <div class="quantity">#}
+{#                            <img  class="chg-quantity"#}
+{#                                 src="{% static "img/arrow-up.png" %}">#}
+{#                            <img class="chg-quantity"#}
+{#                                 src="{% static "img/arrow-down.png" %}">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div style="flex: 1">$200</div>#}
+{#                </div>#}
+{##}
+                {#                {% endfor %}#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <br><br><br><br><br><br><br>#}
+{#{% endblock %}#}

@@ -1,0 +1,155 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}
+    <style>
+        .item a {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            overflow: hidden;
+        }
+
+        .item img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+
+    <section class="col-lg-12">
+
+        <div id="myCarousel" class="carousel slide"
+             data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner col-lg-23">
+                <div class="carousel-item active">
+                    <div class="overlay-image" style="background-image:
+                            url({% static 'img/carousel/carousel.jpg' %})">
+                    </div>
+                    <div class="container_1">
+                        <h1>{% trans 'Enjoy Your Holiday' %}</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium <br> beatae
+                            commodi cumque, dolorem esse hic numquam reiciendis tempora <br> vitae! Lorem
+                            ipsum dolor sit amet, consectetur adipisicing elit. Illum, quia!</p>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'room:my_room' %}" class="btn btn-lg btn-success ">
+                                {% trans 'Book Now' %}
+                            </a>
+                        {% else %}
+                            <a href="{% url 'auth_login' %}" class="btn btn-lg btn-success ">
+                                {% trans 'Book Now' %}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="overlay-image" style="background-image:
+                            url({% static 'img/carousel/carousel2.jpg' %})">
+                    </div>
+                    <div class="container_2">
+                        <h1>{% trans 'Have A Nice Relax' %}</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium <br> beatae
+                            commodi cumque, dolorem esse hic numquam reiciendis tempora <br> vitae! Lorem
+                            ipsum dolor sit amet, consectetur adipisicing elit. Illum, quia!</p>
+                        {#                        <a href="#" class="btn btn-lg btn-success ">#}
+                        {#                            Sign up today#}
+                        {#                        </a>#}
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="overlay-image" style="background-image:
+                            url({% static 'img/carousel/carousel3.jpg' %})">
+                    </div>
+                    {#                    {% for banner in banners %}#}
+                    <div class="container_3">
+                        <h1>{% trans 'Be Healthy' %}</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium <br> beatae
+                            commodi cumque, dolorem esse hic numquam reiciendis tempora <br> vitae! Lorem
+                            ipsum dolor sit amet, consectetur adipisicing elit. Illum, quia!</p>
+                    </div>
+                </div>
+                <a href="#myCarousel" class="carousel-control-prev" role="button"
+                   data-slide="prev">
+                    <span class="sr-only">Previous</span>
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+
+                <a href="#myCarousel" class="carousel-control-next" role="button"
+                   data-slide="next">
+                    <span class="sr-only">Next</span>
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        {#        <hr class="featurette-divider">#}
+
+        <div class="row featurette ml-lg-5">
+            <div class="col-md-5 ml-lg-5 mt-lg-5">
+                <h2 class="featurette-heading ml-lg-5">{% trans 'Enjoy Your Special Day' %}</h2>
+                <p class="lead text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam autem
+                    culpa enim hic
+                    veritatis voluptatem.</p>
+            </div>
+            <div class="col-md-4.5 shadow-lg p-3 mb-5 bg-white rounded mt-lg-5">
+                <a><img class="thumbnail" src="{% static "img/reception.jpg" %}" alt="image"
+                        style="height: 450px; width: 600px"></a>
+            </div>
+        </div>
+        <br>
+        <div class="row featurette ml-lg-5">
+            <div class="col-md-4.5 ml-lg-5 shadow-lg p-3 mb-5 bg-white rounded">
+                <a><img class="thumbnail" src="{% static "img/reception1.jpg" %}" alt="image"
+                        style="height: 450px; width: 600px"></a>
+            </div>
+            <div class="col-md-5 ml-lg-5">
+                <h2 class="featurette-heading ml-lg-5">{% trans 'High Quality Service' %}</h2>
+                <p class="lead text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam autem
+                    culpa enim hic
+                    veritatis voluptatem.</p>
+            </div>
+        </div>
+
+
+    </section>
+
+    <br><br><br>
+
+    <div class="container col-lg-10 centered ">
+        <div class="row">
+
+            <div class="col-lg-5 ml-lg-5">
+            <img src="{% static 'img/reception3.jpeg' %}" alt="team1" style="width:100%; height: 445px">
+            <h4 class="bg-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h4>
+        </div>
+
+        <div class="col-lg-5 ml-lg-5">
+            <img src="{% static 'img/reception2.jpg' %}" alt="photo" style="width:100%">
+            <h4 class="bg-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h4>
+        </div>
+
+
+    </div>
+    </div>
+
+    <br><br><br>
+
+
+
+{% endblock %}
+
