@@ -267,7 +267,7 @@ msgstr "Электронная почта"
 
 #: templates/navbar/book.html:141
 msgid "Phone"
-msgstr ""
+msgstr "Телефон"
 
 #: templates/navbar/book.html:145
 #, fuzzy

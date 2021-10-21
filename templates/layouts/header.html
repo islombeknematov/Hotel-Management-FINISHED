@@ -129,7 +129,7 @@
             {% url 'room:heart-wishlist' as wishlist %}
             <a href="{{ wishlist }}" style="margin-left: 37rem"><i class="far fa-heart text-dark"></i></a>
         {% else %}
-            <span style="margin-left: 32rem"></span>
+            <span style="margin-left: 38rem"></span>
         {% endif %}
 
         <div class="header__top__hover">
@@ -163,8 +163,8 @@
                style="font-weight: bolder; color: #000000; margin-left: 10px">{% trans 'Logout' %}</a>
         {% else %}
 
-            <li><a href="{% url 'registration_register' %}"
-                   style="font-weight: bolder; color: #000000; margin-left: 10px">Register</a></li>
+{#            <li><a href="{% url 'registration_register' %}"#}
+{#                   style="font-weight: bolder; color: #000000; margin-left: 10px">Register</a></li>#}
 
             <a href="{% url 'auth_login' %}"
                style="font-weight: bolder; color: #000000; margin-left: 25px">{% trans 'Log in' %}</a>

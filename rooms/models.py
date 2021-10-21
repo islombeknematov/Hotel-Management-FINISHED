@@ -72,8 +72,10 @@ class BookListModel(models.Model):
 
 class BookInfoModel(models.Model):
 
-    arrival = models.DateTimeField(max_length=20, verbose_name=_('arrival'), blank=True, null=True)
-    departure = models.DateTimeField(max_length=20, verbose_name=_('departure'), blank=True, null=True)
+    # bookRoom = models.ForeignKey(RoomModel, on_delete=models.CASCADE, related_name='bookRoom')
+
+    arrival = models.DateField(max_length=20, verbose_name=_('arrival'), blank=True, null=True)
+    departure = models.DateField(max_length=20, verbose_name=_('departure'), blank=True, null=True)
 
     first_name = models.CharField(max_length=20, verbose_name=_('first_name'), null=True, blank=True)
     last_name = models.CharField(max_length=20, verbose_name=_('last_name'), null=True, blank=True)

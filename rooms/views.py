@@ -10,7 +10,7 @@ from rooms.forms import BookInfoModelForm
 from rooms.models import RoomModel, WishlistModel, BookListModel, BookInfoModel
 
 
-class RoomListView(ListView):
+class RoomListView(LoginRequiredMixin, ListView):
     template_name = 'navbar/room.html'
     paginate_by = 6
 
@@ -51,7 +51,7 @@ def edit_wishlist(request, pk):
     return redirect(request.GET.get('next', '/'))
 
 
-class BookListView(ListView):
+class BookListView(LoginRequiredMixin, ListView):
     template_name = 'navbar/book.html'
 
     def get_queryset(self):
@@ -72,7 +72,6 @@ def update_book(request, pk):
 #     template_name = 'room_detail.html'
 #     model = RoomModel
 
-@login_required
 def room_detail(request, pk):
     # ------------------------------
     # try:

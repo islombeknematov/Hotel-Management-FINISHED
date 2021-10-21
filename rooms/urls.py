@@ -9,7 +9,6 @@ app_name = 'room'
 urlpatterns = [
     path('<int:pk>/wishlist/', edit_wishlist, name='edit-wishlist'),
     path('<int:pk>/update_book/', update_book, name='update-book'),
-
     path('wishlist/', WishListView.as_view(), name='heart-wishlist'),
     path('book/', BookListView.as_view(), name='book'),
 
