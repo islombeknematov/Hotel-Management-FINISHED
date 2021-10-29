@@ -23,19 +23,6 @@ class RoomListView(LoginRequiredMixin, ListView):
         return qs
 
 
-# def search_room(request):
-#     all_rooms = RoomModel.objects.all()
-#     q = request.GET.get('q')
-#     if q:
-#         all_rooms = RoomModel.objects.filter(title__icontains=q)
-#     else:
-#         all_rooms = RoomModel.objects.all()
-#     context = {
-#         'search_all': all_rooms
-#     }
-#     return render(request, 'navbar/room.html', context)
-
-
 class WishListView(LoginRequiredMixin, ListView):
     template_name = 'wishlist.html'
 
@@ -65,12 +52,6 @@ def update_book(request, pk):
 
     return redirect(request.GET.get('next', '/'))
 
-    # DETAIL VIEW
-
-
-# class RoomDetailView(DetailView):
-#     template_name = 'room_detail.html'
-#     model = RoomModel
 
 def room_detail(request, pk):
     # ------------------------------

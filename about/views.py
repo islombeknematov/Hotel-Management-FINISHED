@@ -22,7 +22,3 @@ def about_video(request):
 
 
 
-
-
-
-
