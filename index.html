@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+<br><br><br>
+<div class="container">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Code</th>
+            <th>Price</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody id="money">
+
+    </tbody>
+</table>
+</div>
+
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        $.getJSON('https://nbu.uz/uz/exchange-rates/json/', function (data){
+            for (const info of data){
+                let row = '<tr>';
+                row += '<td>' + info.title + '</td>'
+                row += '<td>' + info.code + '</td>'
+                row += '<td>' + info.cb_price + ' $ </td>'
+                row += '<td>' + info.date + '</td>'
+                row += '</tr>'
+                $('#money').append(row)
+            }
+        })
+    })
+</script>
+</body>
+</html>
